@@ -1,8 +1,6 @@
 FROM ubuntu:16.04
 
 LABEL maintainer="m.johnson@cyber-bytes.co.uk"
-ARG BUILD_DATE=(date +'%Y-%m-%d')
-LABEL org.label-schema.build-date=$BUILD_DATE
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 ENV PATH=$PATH:/opt/elasticsearch-6.8.16/bin
