@@ -26,7 +26,7 @@ RUN apt-get update -y && \
     curl \
     apt-transport-https \
     openjdk-8-jdk \
-    unzip
+    unzip    
 
 #Install Elasticsearch
 RUN export JAVA_HOME
@@ -57,11 +57,15 @@ RUN mkdir -p /opt/aleph/unprocessed_samples
 COPY /config/settings.py /opt/aleph/aleph/settings.py
 
 EXPOSE 5000
+HEALTHCHECK CMD curl --fail http://localhost:5000 || exit 1   
 
 VOLUME /opt/aleph/samples /opt/aleph/unprocessed_samples
 
 RUN mkdir /opt/scripts/
 ADD /scripts/run.sh /opt/scripts/run.sh
+RUN chmod +x /opt/aleph/bin/aleph-server.py
+RUN chmod +x /opt/aleph/bin/db_create.py
+RUN chmod +x /opt/aleph/bin/aleph-webui.sh
 
 WORKDIR /opt/scripts
-CMD ['./run.sh']
+CMD ["/bin/bash", "/opt/scripts/run.sh"]

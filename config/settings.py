@@ -21,6 +21,9 @@ SAMPLE_MANAGERS=2 # Simultaneous sample analysis
 SAMPLE_MIN_FILESIZE=40 # bytes
 SAMPLE_MAX_FILESIZE=(1024*1024*30) # bytes
 
+SECRET_KEY = 'Pu7s0m3cryp7l337here' #do not use this ;)
+SAMPLE_SUBMIT_FOLDER= '/opt/aleph/samples' #where samples will be submitted from webui
+
 # Mail Options
 MAIL_ENABLE = False
 MAIL_SERVER = 'smtp.googlemail.com'
