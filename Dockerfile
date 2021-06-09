@@ -59,7 +59,7 @@ COPY /config/settings.py /opt/aleph/aleph/settings.py
 EXPOSE 5000
 HEALTHCHECK CMD curl --fail http://localhost:5000 || exit 1   
 
-VOLUME /opt/aleph/samples /opt/aleph/unprocessed_samples
+VOLUME /opt/aleph/samples /opt/aleph/unprocessed_samples /usr/share/elasticsearch/data /usr/share/elasticsearch/config/
 
 RUN mkdir /opt/scripts/
 ADD /scripts/run.sh /opt/scripts/run.sh
